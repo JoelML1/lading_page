@@ -95,7 +95,7 @@ const Programs = () => {
   }
 
   return (
-    <section id="programas" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="programas" className="py-20 bg-gradient-to-br from-black to-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -104,10 +104,10 @@ const Programs = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-cyan-400 mb-6 animate-glow">
             Nuestros Programas
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-cyan-300 max-w-3xl mx-auto leading-relaxed">
             Descubre la amplia gama de programas de formación que tenemos para ti. 
             Cada uno diseñado para prepararte para el mundo laboral actual.
           </p>
@@ -126,8 +126,8 @@ const Programs = () => {
               onClick={() => setActiveCategory(category.id)}
               className={`px-6 py-3 rounded-full font-semibold transition-all ${
                 activeCategory === category.id
-                  ? 'bg-gradient-to-r from-sena-green to-sena-blue text-white shadow-lg'
-                  : 'bg-white text-gray-700 hover:bg-gray-50 shadow'
+                  ? 'bg-gradient-to-r from-cyan-600 to-cyan-400 text-black shadow-lg shadow-cyan-500/50'
+                  : 'bg-black/50 text-cyan-400 hover:bg-cyan-400/10 shadow border border-cyan-500/20'
               }`}
             >
               <span className="mr-2">{category.icon}</span>
@@ -150,7 +150,7 @@ const Programs = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden group"
+              className="bg-black/60 backdrop-blur-sm border border-cyan-500/20 rounded-2xl shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/30 transition-all overflow-hidden group"
             >
               {/* Header con gradiente */}
               <div className={`bg-gradient-to-r ${program.color} p-6 text-white`}>
@@ -166,19 +166,19 @@ const Programs = () => {
 
               {/* Contenido */}
               <div className="p-6">
-                <h4 className="font-semibold text-gray-900 mb-3">Lo que aprenderás:</h4>
+                <h4 className="font-semibold text-cyan-400 mb-3">Lo que aprenderás:</h4>
                 <div className="flex flex-wrap gap-2 mb-6">
                   {program.skills.map((skill, skillIndex) => (
                     <span
                       key={skillIndex}
-                      className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+                      className="bg-cyan-500/20 text-cyan-300 px-3 py-1 rounded-full text-sm border border-cyan-500/30"
                     >
                       {skill}
                     </span>
                   ))}
                 </div>
 
-                <button className="w-full bg-gradient-to-r from-sena-green to-sena-blue text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all group-hover:scale-105">
+                <button className="w-full bg-gradient-to-r from-cyan-600 to-cyan-400 text-black py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-cyan-500/50 transition-all group-hover:scale-105">
                   Más Información
                 </button>
               </div>
@@ -191,30 +191,50 @@ const Programs = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-20 text-center bg-white rounded-2xl p-8 md:p-12 shadow-lg"
+          className="mt-20 text-center bg-black/80 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8 md:p-12 shadow-lg shadow-cyan-500/20"
         >
-          <h3 className="text-3xl font-bold text-gray-900 mb-6">
+          <h3 className="text-3xl font-bold text-cyan-400 mb-6 animate-glow">
             ¿Listo para comenzar tu futuro?
           </h3>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-cyan-300 mb-8 max-w-2xl mx-auto">
             Únete a miles de colombianos que han transformado sus vidas a través 
             de la formación SENA. ¡Tu futuro profesional comienza aquí!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
+          
+          {/* Logo del SENA en cian */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex justify-center mb-8"
+          >
+            <div className="w-24 h-24 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/50">
+              {/* Aquí irá el logo del SENA */}
+              <img 
+                src="http://www.sena.edu.co/Style%20Library/alayout/images/logoSena.png" 
+                alt="Logo SENA" 
+                className="w-16 h-16 object-contain filter brightness-0 invert"
+                style={{
+                  filter: 'brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%)'
+                }}
+              />
+            </div>
+          </motion.div>
+          
+          <div className="flex justify-center">
+            <motion.a
+              href="https://betowa.sena.edu.co/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 30px rgba(0, 255, 255, 0.8)"
+              }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-sena-green to-sena-blue text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="bg-gradient-to-r from-cyan-600 to-cyan-400 text-black px-10 py-4 rounded-full text-xl font-bold shadow-lg shadow-cyan-500/50 hover:shadow-cyan-500/80 transition-all"
             >
-              Inscribirse Ahora
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="border-2 border-sena-blue text-sena-blue px-8 py-4 rounded-full text-lg font-semibold hover:bg-sena-blue hover:text-white transition-all"
-            >
-              Descargar Información
-            </motion.button>
+              🚀 Ir a Betowa
+            </motion.a>
           </div>
         </motion.div>
       </div>

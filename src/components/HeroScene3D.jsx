@@ -62,18 +62,18 @@ const HeroScene3D = () => {
       {/* Iluminación */}
       <ambientLight intensity={0.4} />
       <directionalLight position={[5, 5, 5]} intensity={0.8} />
-      <pointLight position={[-5, 5, 5]} color="#39A935" intensity={0.6} />
-      <pointLight position={[5, -5, 5]} color="#FF6B35" intensity={0.6} />
+      <pointLight position={[-5, 5, 5]} color="#00FFFF" intensity={0.8} />
+      <pointLight position={[5, -5, 5]} color="#00DDDD" intensity={0.6} />
 
       {/* Elementos tecnológicos flotantes */}
-      <TechShape position={[-4, 2, -2]} shape="laptop" color="#004A8A" speed={0.8} />
-      <TechShape position={[4, -1, -3]} shape="server" color="#39A935" speed={1.2} />
-      <TechShape position={[0, 3, -5]} shape="network" color="#FF6B35" speed={0.6} />
-      <TechShape position={[-3, -2, -4]} shape="logistics" color="#004A8A" speed={1.0} />
+      <TechShape position={[-4, 2, -2]} shape="laptop" color="#00FFFF" speed={0.8} />
+      <TechShape position={[4, -1, -3]} shape="server" color="#00DDDD" speed={1.2} />
+      <TechShape position={[0, 3, -5]} shape="network" color="#00CCCC" speed={0.6} />
+      <TechShape position={[-3, -2, -4]} shape="logistics" color="#00FFFF" speed={1.0} />
       
       {/* Elementos adicionales para crear profundidad */}
-      <TechShape position={[6, 1, -6]} shape="laptop" color="#39A935" speed={0.9} />
-      <TechShape position={[-6, -1, -7]} shape="network" color="#FF6B35" speed={0.7} />
+      <TechShape position={[6, 1, -6]} shape="laptop" color="#00DDDD" speed={0.9} />
+      <TechShape position={[-6, -1, -7]} shape="network" color="#00CCCC" speed={0.7} />
       
       {/* Partículas de datos */}
       {Array.from({ length: 30 }).map((_, i) => (
@@ -87,9 +87,11 @@ const HeroScene3D = () => {
           >
             <Sphere args={[0.05]} />
             <meshStandardMaterial 
-              color={['#39A935', '#FF6B35', '#004A8A'][Math.floor(Math.random() * 3)]} 
+              color={['#00FFFF', '#00DDDD', '#00CCCC', '#00AAAA'][Math.floor(Math.random() * 4)]} 
               transparent 
-              opacity={0.6} 
+              opacity={0.8}
+              emissive={['#00FFFF', '#00DDDD', '#00CCCC'][Math.floor(Math.random() * 3)]}
+              emissiveIntensity={0.3}
             />
           </mesh>
         </Float>
@@ -100,11 +102,11 @@ const HeroScene3D = () => {
         <Text
           position={[0, -3, -8]}
           fontSize={0.8}
-          color="#ffffff"
+          color="#00FFFF"
           anchorX="center"
           anchorY="middle"
           transparent
-          opacity={0.3}
+          opacity={0.6}
         >
           INNOVACIÓN
         </Text>
@@ -114,11 +116,11 @@ const HeroScene3D = () => {
         <Text
           position={[-5, 1, -10]}
           fontSize={0.6}
-          color="#39A935"
+          color="#00DDDD"
           anchorX="center"
           anchorY="middle"
           transparent
-          opacity={0.4}
+          opacity={0.7}
         >
           TECNOLOGÍA
         </Text>
@@ -128,11 +130,11 @@ const HeroScene3D = () => {
         <Text
           position={[5, -2, -9]}
           fontSize={0.6}
-          color="#FF6B35"
+          color="#00CCCC"
           anchorX="center"
           anchorY="middle"
           transparent
-          opacity={0.4}
+          opacity={0.7}
         >
           LOGÍSTICA
         </Text>

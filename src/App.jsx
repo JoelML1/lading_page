@@ -10,7 +10,7 @@ import Scene3D from './components/Scene3D'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+    <div className="min-h-screen bg-black text-cyan-400">
       <Header />
       <Hero />
       <About />

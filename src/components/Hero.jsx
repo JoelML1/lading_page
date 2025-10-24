@@ -5,7 +5,7 @@ import HeroScene3D from './HeroScene3D'
 
 const Hero = () => {
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {/* Fondo 3D */}
       <div className="absolute inset-0 z-0">
         <Canvas camera={{ position: [0, 0, 5] }}>
@@ -22,9 +22,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold text-cyan-400 mb-6 animate-glow"
+            style={{
+              textShadow: '0 0 20px #00FFFF, 0 0 40px #00FFFF, 0 0 60px #00FFFF'
+            }}
           >
-            <span className="bg-gradient-to-r from-sena-green to-sena-orange bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-cyan-600 bg-clip-text text-transparent">
               SENA CGMLTI
             </span>
           </motion.h1>
@@ -33,7 +36,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className="text-xl md:text-2xl lg:text-3xl text-white mb-8 font-light"
+            className="text-xl md:text-2xl lg:text-3xl text-cyan-300 mb-8 font-light"
+            style={{
+              textShadow: '0 0 10px #00DDDD'
+            }}
           >
             Centro de Gestión de Mercados, Logística y Tecnologías de la Información
           </motion.h2>
@@ -42,7 +48,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="text-lg md:text-xl text-gray-200 mb-12 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-cyan-200 mb-12 max-w-3xl mx-auto leading-relaxed"
           >
             Forma tu futuro con nosotros. Explora nuestros programas de formación en tecnología, 
             logística y gestión de mercados. Donde la innovación encuentra la oportunidad.
@@ -54,21 +60,31 @@ const Hero = () => {
             transition={{ duration: 1, delay: 0.8 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
+            <motion.a
+              href="#programas"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 30px rgba(0, 255, 255, 0.8)"
+              }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-sena-green to-sena-blue text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all"
+              className="bg-gradient-to-r from-cyan-600 to-cyan-400 text-black px-8 py-4 rounded-full text-lg font-semibold shadow-lg shadow-cyan-500/50 hover:shadow-cyan-500/80 transition-all cursor-pointer inline-block"
             >
               Explorar Programas
-            </motion.button>
+            </motion.a>
             
-            <motion.button
-              whileHover={{ scale: 1.05 }}
+            <motion.a
+              href="https://betowa.sena.edu.co/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 0 20px rgba(0, 255, 255, 0.5)"
+              }}
               whileTap={{ scale: 0.95 }}
-              className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-sena-blue transition-all"
+              className="border-2 border-cyan-400 text-cyan-400 px-8 py-4 rounded-full text-lg font-semibold hover:bg-cyan-400 hover:text-black transition-all cursor-pointer inline-block"
             >
-              Conocer Más
-            </motion.button>
+              Ir a Betowa
+            </motion.a>
           </motion.div>
 
           {/* Estadísticas */}
@@ -83,11 +99,14 @@ const Hero = () => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
-                className="text-3xl md:text-4xl font-bold text-sena-orange mb-2"
+                className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2"
+                style={{
+                  textShadow: '0 0 15px #00FFFF'
+                }}
               >
                 50+
               </motion.div>
-              <p className="text-white text-lg">Programas de Formación</p>
+              <p className="text-cyan-300 text-lg">Programas de Formación</p>
             </div>
             
             <div className="text-center">
@@ -95,11 +114,14 @@ const Hero = () => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.8, delay: 1.4 }}
-                className="text-3xl md:text-4xl font-bold text-sena-green mb-2"
+                className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2"
+                style={{
+                  textShadow: '0 0 15px #00FFFF'
+                }}
               >
                 10,000+
               </motion.div>
-              <p className="text-white text-lg">Estudiantes Graduados</p>
+              <p className="text-cyan-300 text-lg">Estudiantes Graduados</p>
             </div>
             
             <div className="text-center">
@@ -107,11 +129,14 @@ const Hero = () => {
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.8, delay: 1.6 }}
-                className="text-3xl md:text-4xl font-bold text-sena-blue mb-2"
+                className="text-3xl md:text-4xl font-bold text-cyan-400 mb-2"
+                style={{
+                  textShadow: '0 0 15px #00FFFF'
+                }}
               >
                 95%
               </motion.div>
-              <p className="text-white text-lg">Tasa de Empleabilidad</p>
+              <p className="text-cyan-300 text-lg">Tasa de Empleabilidad</p>
             </div>
           </motion.div>
         </div>
@@ -127,9 +152,9 @@ const Hero = () => {
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-white rounded-full flex justify-center"
+          className="w-6 h-10 border-2 border-cyan-400 rounded-full flex justify-center shadow-lg shadow-cyan-500/50"
         >
-          <div className="w-1 h-3 bg-white rounded-full mt-2"></div>
+          <div className="w-1 h-3 bg-cyan-400 rounded-full mt-2"></div>
         </motion.div>
       </motion.div>
     </section>
