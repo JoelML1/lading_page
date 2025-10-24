@@ -6,4 +6,12 @@ export default defineConfig({
   plugins: [react()],
   // Base para GitHub Pages (el repositorio se llama lading_page)
   base: '/lading_page/',
+  // Configuración adicional para mejorar el build
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
+  },
 })
